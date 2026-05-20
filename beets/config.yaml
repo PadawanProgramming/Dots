@@ -1,0 +1,38 @@
+# 1. Rutas principales
+directory: /Users/padawan/Music
+library: ~/.config/beets/musiclibrary.db
+
+# 2. Comportamiento general
+import:
+    move: yes           # Mueve el archivo original a tu carpeta Music
+    write: yes          # Escribe los metadatos dentro del archivo de audio
+    autotag: yes        # Busca la información en internet
+    resume: ask         # Si cancelas a la mitad, te pregunta si quieres continuar
+
+# 3. Estructura de carpetas a generar
+paths:
+    default: '$albumartist/$album ($year)/$if{$track,$track - ,}$title'
+
+# 4. Los Plugins Mágicos
+plugins: fetchart embedart scrub lastgenre
+
+# Configuración de los plugins:
+
+# fetchart: Descarga la portada desde internet
+fetchart:
+    auto: yes
+    filename: cover     # La guarda como cover.jpg en la carpeta del álbum
+
+# embedart: Inyecta la imagen DENTRO del archivo de audio
+embedart:
+    auto: yes
+    remove_art_file: no # Mantiene el cover.jpg en la carpeta para rmpc
+
+# scrub: Borra TODA la basura previa del archivo antes de poner los datos nuevos
+scrub:
+    auto: yes
+
+# lastgenre: Busca el género musical real de la canción en Last.fm
+lastgenre:
+    auto: yes
+    source: album

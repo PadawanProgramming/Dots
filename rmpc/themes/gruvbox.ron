@@ -1,0 +1,53 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    // === 1. COLORES BASE DE LA UI ===
+    draw_borders: true,
+    background_color: "#282828",       // bg0
+    header_background_color: Some("#3c3836"), // bg1
+    modal_background_color: Some("#3c3836"),  // bg1
+    modal_backdrop: true,
+    text_color: Some("#ebdbb2"),        // fg
+
+    // === 2. ICONOS Y MARCADORES GENERALES ===
+    symbols: (
+        song: "🎵",
+        dir: "📁",
+        marker: "❯",
+    ),
+
+    // === 3. ESTILOS DE NAVEGACIÓN Y LISTAS ===
+    dir_style: (fg: "#83a598"),              // Azul para directorios
+    song_style: (fg: "#ebdbb2"),             // fg normal para canciones
+    
+    // Elementos seleccionados / enfocados
+    current_track_style: (fg: "#b8bb26", modifiers: "Bold"),      // Verde (Canción sonando)
+    marker_style: (fg: "#fe8019", modifiers: "Bold"),             // Naranja para el cursor
+    marker_current_style: (fg: "#b8bb26", modifiers: "Bold"),     // Verde si coincide cursor y reproducción
+    marker_highlighted_style: (fg: "#fabd2f"),                    // Amarillo para selección visual múltiple
+
+    // === 4. BARRA DE REPRODUCCIÓN (PLAYBAR) ===
+    progress_bar_style: (
+        elapsed_style: (fg: "#b8bb26", bg: "#504945"), // Verde sobre gris (bg2)
+        thump_style: (fg: "#fabd2f"),                  // Amarillo para el indicador actual
+    ),
+    active_playbar_style: (fg: "#fe8019", modifiers: "Bold"), // Naranja al interactuar
+
+    // === 5. VENTANAS EMERGENTES Y METADATOS (PREVIEW) ===
+    preview_label_style: (fg: "#fabd2f"),                     // Amarillo para etiquetas (Title:, Artist:)
+    preview_metadata_group_style: (fg: "#fe8019", modifiers: "Bold"), // Naranja para bloques
+
+    // === 6. REGISTROS DEL SISTEMA (LOGS / NOTIFICACIONES) ===
+    level_styles: (
+        info: (fg: "#83a598", bg: "black"),   // Azul
+        warn: (fg: "#fabd2f", bg: "black"),   // Amarillo
+        error: (fg: "#fb4934", bg: "black"),  // Rojo (Gruvbox Red)
+        debug: (fg: "#a89984", bg: "black"),  // Gris claro
+        trace: (fg: "#d3869b", bg: "black"),  // Púrpura
+    ),
+
+    // === 7. TABLAS (COLUMNAS DE COLA DE REPRODUCCIÓN / NAVEGADOR) ===
+    // Configuración completa para que las cabeceras mantengan la estética
+    song_table_header_style: (fg: "#a89984", modifiers: "Bold"), // Gris para títulos de columnas
+)
